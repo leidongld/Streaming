@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Streaming</string>
+    <string name="loading_text">视频加载中...</string>
+    <string name="warning">警告</string>
+    <string name="warning_detail">网络连接错误！</string>
+    <string name="ok">确定</string>
+</resources>
