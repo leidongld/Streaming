@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/splash_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/splash_background">
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Streaming"
+        android:layout_marginTop="200dp"
+        android:gravity="center_horizontal"
+        android:textSize="60sp"/>
+    <TextView
+        android:id="@+id/app_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Author : Lei Dong"
+        android:gravity="center_horizontal"
+        android:textSize="30sp"
+        android:layout_marginTop="12dp"/>
+    <TextView
+        android:id="@+id/app_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="To my girlfriend."
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:layout_marginTop="12dp"/>
+</LinearLayout>

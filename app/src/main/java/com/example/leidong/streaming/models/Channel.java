@@ -1,7 +1,8 @@
 package com.example.leidong.streaming.models;
 
 /**
- * Created by leido on 2018/3/7.
+ * Created by leidong on 2018/3/7
+ * 频道
  */
 
 public class Channel {

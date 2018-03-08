@@ -3,23 +3,22 @@ package com.example.leidong.streaming.views;
 import android.content.Context;
 import android.media.MediaMetadataRetriever;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.widget.VideoView;
 
 /**
- * Created by leido on 2018/3/7.
+ * Created by leidong on 2018/3/7
+ * 自定义VideoView
  */
 
 public class MyVideoView extends VideoView {
     //最终的视频资源宽度
-    private int mVideoWidth=480;
+    private int mVideoWidth = 480;
     //最终视频资源高度
-    private int mVideoHeight=480;
+    private int mVideoHeight = 480;
     //视频资源原始宽度
-    private int videoRealW=1;
+    private int videoRealW = 1;
     //视频资源原始高度
-    private int videoRealH=1;
+    private int videoRealH = 1;
 
     public MyVideoView(Context context) {
         super(context);
@@ -47,7 +46,7 @@ public class MyVideoView extends VideoView {
             videoRealH=Integer.parseInt(height);
             videoRealW=Integer.parseInt(width);
         } catch (NumberFormatException e) {
-            Log.e("----->" + "VideoView", "setVideoPath:" + e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -58,10 +57,11 @@ public class MyVideoView extends VideoView {
 
         setMeasuredDimension(width, height);
     }
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        //屏蔽触摸点击事件
-        return true;
-    }
+
+//    @Override
+//    public boolean onTouchEvent(MotionEvent ev) {
+//        //屏蔽触摸点击事件
+//        return true;
+//    }
 }
 

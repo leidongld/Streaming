@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recyclerview);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false));
-        mAdapter = new MyRecyclerViewAdapter(Constants.channels);
+        mAdapter = new MyRecyclerViewAdapter(Constants.channels, MainActivity.this);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
     }

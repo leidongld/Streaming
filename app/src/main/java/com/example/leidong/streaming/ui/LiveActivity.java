@@ -1,5 +1,6 @@
 package com.example.leidong.streaming.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,8 +8,12 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,16 +21,17 @@ import com.example.leidong.streaming.R;
 import com.example.leidong.streaming.constants.Constants;
 import com.example.leidong.streaming.views.MyVideoView;
 
-/**
- * Created by leido on 2018/3/7.
- */
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
+/**
+ * Created by leidong on 2018/3/7
+ */
 public class LiveActivity extends Activity implements View.OnClickListener {
     private static final String TAG = "LiveActivity";
 
     private String mTitleStr;
     private String mUrlStr;
-    private String mTimeStr;
 
     private MyVideoView mMyVideoView;
     private RelativeLayout mLoadingLayout;
@@ -33,13 +39,18 @@ public class LiveActivity extends Activity implements View.OnClickListener {
     private ImageButton mBackBtn;
     private TextView mTitleTv;
     private TextView mTimeTv;
-    private ImageButton mPlayBtn;
 
     private int count = 0;
+
+    private RelativeLayout mRootLayout;
+    private LinearLayout mTopLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_live);
 
         obtainDatas();
@@ -115,8 +126,8 @@ public class LiveActivity extends Activity implements View.OnClickListener {
      * 初始化事件
      */
     private void initActions() {
-        mPlayBtn.setOnClickListener(this);
         mBackBtn.setOnClickListener(this);
+        mRootLayout.setOnClickListener(this);
     }
 
     /**
@@ -127,13 +138,15 @@ public class LiveActivity extends Activity implements View.OnClickListener {
 
         mLoadingLayout = findViewById(R.id.rl_loading_layout);
 
-        mPlayBtn = findViewById(R.id.ib_play);
         mBackBtn = findViewById(R.id.ib_back);
 
         mTitleTv = findViewById(R.id.tv_title);
         mTitleTv.setText(mTitleStr);
         mTimeTv = findViewById(R.id.tv_time);
-        mTitleTv.setText(getCurrentSysTime());
+        mTimeTv.setText(getCurrentSysTime());
+
+        mRootLayout = findViewById(R.id.root_layout);
+        mTopLayout = findViewById(R.id.ll_top_layout);
     }
 
     /**
@@ -143,14 +156,16 @@ public class LiveActivity extends Activity implements View.OnClickListener {
         Intent intent = getIntent();
         mTitleStr = intent.getStringExtra(Constants.KEY_TITLE);
         mUrlStr = intent.getStringExtra(Constants.KEY_URL);
+        Log.d(TAG, "--->" + mTitleStr + "--->" + mUrlStr);
     }
 
+    /**
+     * 点击事件
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.ib_play:
-                clickPlayBtn();
-                break;
             case R.id.ib_back:
                 clickBackBtn();
                 break;
@@ -167,26 +182,15 @@ public class LiveActivity extends Activity implements View.OnClickListener {
     }
 
     /**
-     * 点击播放按钮
-     */
-    private void clickPlayBtn() {
-        if(mMyVideoView.isPlaying()){
-            mMyVideoView.stopPlayback();
-            mPlayBtn.setImageResource(R.drawable.pause);
-        }
-        else{
-            mMyVideoView.setVideoURI(Uri.parse(mUrlStr));
-            mMyVideoView.start();
-            mPlayBtn.setImageResource(R.drawable.play);
-        }
-    }
-
-    /**
      * 获取当前的系统时间
      * @return
      */
     public String getCurrentSysTime() {
-        return mTimeStr;
+        Calendar c = Calendar.getInstance();
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time = sdf.format(c.getTime());
+        return time;
     }
 
     @Override

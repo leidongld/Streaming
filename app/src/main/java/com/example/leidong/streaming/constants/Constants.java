@@ -3,7 +3,7 @@ package com.example.leidong.streaming.constants;
 import com.example.leidong.streaming.models.Channel;
 
 /**
- * Created by leido on 2018/3/7.
+ * Created by leidong on 2018/3/7
  */
 
 public class Constants {
@@ -62,8 +62,11 @@ public class Constants {
             new Channel("天籁之战", "http://rotation.vod.zlive.cc/channel/2272.m3u8"),
     };
 
-
-    public static final String KEY_URL = "url";
     public static final String KEY_TITLE = "title";
+    public static final String KEY_URL = "url";
     public static final int RETRY_TIMES = 5;
+
+    public static final int SPLASH_DURATION = 3000;
+
+    public static final int AUTO_HIDE_TIME = 2000;
 }

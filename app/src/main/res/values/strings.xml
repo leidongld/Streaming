@@ -4,4 +4,6 @@
     <string name="warning">警告</string>
     <string name="warning_detail">网络连接错误！</string>
     <string name="ok">确定</string>
+    <string name="no_wifi">您当前为非WiFi环境，确定使用流量进行播放吗？</string>
+    <string name="cannel">取消</string>
 </resources>
