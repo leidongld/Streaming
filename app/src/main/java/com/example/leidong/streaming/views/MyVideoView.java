@@ -57,11 +57,5 @@ public class MyVideoView extends VideoView {
 
         setMeasuredDimension(width, height);
     }
-
-//    @Override
-//    public boolean onTouchEvent(MotionEvent ev) {
-//        //屏蔽触摸点击事件
-//        return true;
-//    }
 }
 

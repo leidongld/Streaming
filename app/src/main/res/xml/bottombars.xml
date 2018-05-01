@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_channels"
+        icon="@drawable/tab_channels"
+        title="节目"
+        barColorWhenSelected="#4CAF50"/>
+    <tab
+        id="@+id/tab_movies"
+        icon="@drawable/tab_movies"
+        title="电影"
+        barColorWhenSelected="#FF5722"/>
+    <tab
+        id="@+id/tab_foods"
+        icon="@drawable/tab_foods"
+        title="美食"
+        barColorWhenSelected="#03A9F4"/>
+    <tab
+        id="@+id/tab_games"
+        icon="@drawable/tab_games"
+        title="游戏"
+        barColorWhenSelected="#333366"/>
+</tabs>

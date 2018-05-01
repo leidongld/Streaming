@@ -8,10 +8,12 @@ package com.example.leidong.streaming.models;
 public class Channel {
     private String title;
     private String url;
+    private String imageUrl;
 
-    public Channel(String title, String url){
+    public Channel(String title, String url, String imageUrl){
         this.title = title;
         this.url = url;
+        this.imageUrl = imageUrl;
     }
 
     public String getTitle() {
@@ -28,5 +30,13 @@ public class Channel {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

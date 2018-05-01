@@ -2,12 +2,12 @@ package com.example.leidong.streaming.ui;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -32,6 +32,7 @@ public class LiveActivity extends Activity implements View.OnClickListener {
 
     private String mTitleStr;
     private String mUrlStr;
+    private String mImageUrlStr;
 
     private MyVideoView mMyVideoView;
     private RelativeLayout mLoadingLayout;
@@ -154,8 +155,10 @@ public class LiveActivity extends Activity implements View.OnClickListener {
      */
     private void obtainDatas() {
         Intent intent = getIntent();
-        mTitleStr = intent.getStringExtra(Constants.KEY_TITLE);
-        mUrlStr = intent.getStringExtra(Constants.KEY_URL);
+        Bundle bundle = intent.getBundleExtra(Constants.ITEM_DATA);
+        mTitleStr = bundle.getString(Constants.KEY_TITLE);
+        mUrlStr = bundle.getString(Constants.KEY_URL);
+        mImageUrlStr = bundle.getString(Constants.KEY_IMAGE_URL);
         Log.d(TAG, "--->" + mTitleStr + "--->" + mUrlStr);
     }
 
